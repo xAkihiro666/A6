@@ -1,0 +1,621 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 65, 108);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 65, 108, 0.8);
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #1a1a1a;
+    padding: 1rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.Title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-item:hover {
+    background-color: transparent;
+    color: rgb(255, 65, 108);
+}
+
+header {
+    background-color: #2d2d2d;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 3rem;
+}
+
+.hero {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal 1s ease forwards;
+    animation-timeline: view();
+    animation-range: entry 20% cover 30%;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.memory-block,
+.hero,
+.page-footer {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+
+.timeline-marker {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    border-left: 3px solid rgb(255, 65, 108);
+}
+
+.date {
+    font-size: 1.5rem;
+    color: rgb(255, 65, 108);
+    font-weight: bold;
+}
+
+.milestone {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.memory-content {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+}
+
+.story h2 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.highlight-tag {
+    background-color: #2d2d2d;
+    cursor: default;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.highlight-tag:hover {
+    background-color: #3d3d3d;
+}
+
+.photo-wall {
+    display: grid;
+    gap: 1rem;
+}
+
+.photo-frame {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 300px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    display: block;
+    filter: brightness(0.7);
+}
+
+.photo-frame:hover img {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.story-section {
+    margin: 4rem 0;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.image-gallery {
+    display: grid;
+    gap: 1rem;
+}
+
+.image-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.intro-section {
+    padding: 12rem 2rem 10rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    position: relative;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 75%,
+        75% 90%,
+        50% 80%,
+        25% 90%,
+        0 80%
+    );
+}
+
+.intro-section h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.intro-section .tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.memory-block {
+    margin: 4rem 0;
+    position: relative;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-me {
+    padding: 12rem 2rem 8rem;
+    text-align: center;
+    background-color: #1a1a1a;
+    position: relative;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+    clip-path: polygon(
+        0 20%,
+        25% 10%,
+        50% 20%,
+        75% 10%,
+        100% 25%,
+        100% 100%,
+        0 100%
+    );
+}
+
+.contact-me h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.contact-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: #2d2d2d;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(255, 65, 108);
+}
+
+.cta-button {
+    background-color: rgb(255, 65, 108);
+    display: inline-block;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    transform: translateY(20px);
+}
+
+.cta-button:hover {
+    background-color: rgb(255, 85, 128);
+    transform: translateY(18px);
+}
+
+.submit-btn {
+    background-color: rgb(255, 65, 108);
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.submit-btn:hover {
+    background-color: rgb(255, 85, 128);
+    transform: translateY(-2px);
+}
+
+.albums-section {
+    padding: 8rem 2rem;
+    text-align: center;
+    background-color: #121212;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+}
+
+.albums-section h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.albums-description {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    filter: brightness(0.7);
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-overlay p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.photo-item:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgb(255, 65, 108);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: rgb(255, 85, 128);
+}
+
+/* .swal-image-popup {
+    background: transparent !important;
+    overflow: hidden !important;
+}
+
+.swal-image-popup img {
+    max-height: 85vh;
+    max-width: 85vw;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    animation-duration: 0.3s !important;
+    object-fit: contain;
+}
+
+.swal2-backdrop-show {
+    animation: fadeIn 0.3s ease-out forwards !important;
+} */
+
+/* .albums-section:in-viewport {
+    animation-name: appear;
+} */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .memory-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .timeline-marker {
+        padding-left: 1rem;
+    }
+    
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .intro-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .intro-section {
+        padding: 8rem 1.5rem 10rem;
+    }
+
+    .contact-me {
+        padding: 10rem 1.5rem 5rem 0rem;
+    }
+
+    .contact-me h2 {
+        font-size: 2rem;
+    }
+
+    .photo-frame {
+        width: 100%;
+        height: 250px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .photo-item {
+        height: 250px;
+    }
+
+    .albums-section {
+        padding: 6rem 1rem;
+    }
+
+    .albums-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
