@@ -31,6 +31,11 @@ body {
     background: rgba(255, 65, 108, 0.8);
 }
 
+a {
+    text-decoration: none;
+    color: inherit; 
+}
+
 .nav-item {
     position: relative;
     display: inline-block;
