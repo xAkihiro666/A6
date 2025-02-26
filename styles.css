@@ -31,17 +31,24 @@ body {
     background: rgba(255, 65, 108, 0.8);
 }
 
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
 .outme {
     display: none;
     position: absolute;
+    left: 0;
+    top: 100%;
     padding: 16px 20px;
     background-color: black;
     color: white;
+    white-space: nowrap;
 }
 
 .nav-item:hover .outme {
     display: block;
-
 }
 
 .nav {
